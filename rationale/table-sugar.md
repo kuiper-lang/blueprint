@@ -3,7 +3,7 @@
 ### Why keep the table?
 Using a single, uniform data structure preserves minimalism in a language where simplicity is essential, while reducing cognitive load, enabling programmers to focus on the logic of a program rather then the syntax of the language.
 
-❌ Say no to conflicting over *how* data is organised
+❌ Say no to conflicting over *how* data is organised <br />
 ✅ Say yes to emphasising logic and abstraction 
 
 ### Inclusion of syntax sugar for data structures
