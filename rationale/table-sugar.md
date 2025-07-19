@@ -11,13 +11,13 @@ Although under the hood, all data structures are implemented as tables, adding s
 
 ### Sample code
 ```lua
-var fruit = array('orange', 'banana', 'pineapple', 'apple') --equivalent to: local fruit = {'orange', 'banana', 'pineapple', 'apple'}
+var fruit = array('orange', 'banana', 'pineapple', 'apple') --evaluates to: local fruit = {'orange', 'banana', 'pineapple', 'apple'}
 
-print(fruit[0]) -- orange, equivalent to: print(fruit[1])
+print(fruit[0]) --evaluates to: print(fruit[1])
 ```
 
 ```lua
-var data = tuple('John', 42, 'Cupertino') --equivalent to: local data = {'John', 42, 'Cupertino'}
+var data = tuple('John', 42, 'Cupertino') --evaluates to: local data = {'John', 42, 'Cupertino'}
 
-var name, age, location = unpack(data)--equivalent to: local name, age, location = table.unpack(data)
+var name, age, location = unpack(data)--evaluates to: local name, age, location = table.unpack(data)
 ```
