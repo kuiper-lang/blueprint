@@ -17,7 +17,7 @@ print(fruit[0]) -- orange, equivalent to print(fruit[1])
 ```
 
 ```lua
-var data = tuple('John', 42, 'Cupertino')
+var data = tuple('John', 42, 'Cupertino') --equivalent to: {'John', 42, 'Cupertino'}
 
-var name, age, location = unpack(t)
+var name, age, location = unpack(data)--equivalent to: table.unpack(data)
 ```
