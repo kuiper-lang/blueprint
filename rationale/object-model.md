@@ -1,4 +1,4 @@
-# OOP-style programming in Lua
+# OOP-style programming in Luz
 Lua has metatables in order to implement object-oriented style programming in your code. However, invoking setmetatable with a table and associated metatable can be considered verbose, and increases boilerplate in your program.
 
 ### Changes to metatabling:
