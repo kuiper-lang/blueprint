@@ -7,18 +7,18 @@ Luz implements a declarative `meta` block to enable metamethods in tables, enabl
 Luz supports interoperability with existing Lua code - so existing `setmetatable` functionality is retained, enabling scalability.
 ```lua
 meta Vector2 {
-    var x: int,
-    var y: int,
+    x: int,
+    y: int,
 
     _add(self, other) do
         self.x += other.x
         self.y += other.y
     end,
 
-    new(self, x, y) do
+    new(x, y) do
         self.x = x
         self.y = y
-        self --implicit returns
+        self --Implicit return of `self` 
     end,
 }
 

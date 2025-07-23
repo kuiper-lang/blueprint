@@ -15,11 +15,11 @@ type DivideByZeroError Error
 
 function divide(x: int, y: int): Result<int>
     if y == 0 then
-        return (DivideByZeroError) {message = "Divisors cannot be zero."}
+        (DivideByZeroError) {message = "Divisors cannot be zero."}
         -- Linear precedence on casting only works when the value is atomic
         -- Must be explicitly structured for casting tables
     end
-    return (Success) x/y
+    (Success) x/y
     -- Linear precedence can be used here, x/y yields a int - an atomic/scalar value
 end
 
