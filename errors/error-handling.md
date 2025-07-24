@@ -25,7 +25,7 @@ function divide(x: int, y: int) -> Result<int>
     -- Linear precedence can be used here, x/y yields a int - an atomic/scalar value
 end
 
-match (Result<int>) divide(100, 0)
+match divide(100, 0)
     when Success           {value}    then print %"Value: {value}"
     when DivideByZeroError {message}  then print %"Error: {message}"
     when _                 {message}  then print %"Unknown error: {message}"
