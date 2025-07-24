@@ -22,7 +22,7 @@ meta Vector2 {
     end,
 }
 
-new_vec = Vector2(1, 2)
+new_vec = Vector2.new(1, 2)
 ```
 
 ### `type` provides struct-like containers:
