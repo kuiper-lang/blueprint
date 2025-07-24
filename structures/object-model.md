@@ -1,11 +1,12 @@
 # OOP-style programming in Luz
-Lua support object-oriented programming with metatables & metamethods. The typical method of invoking setmetatable with a table and associated metatable is boilerplate-heavy.
+Lua supports object-oriented programming with metatables & metamethods. The typical method of invoking setmetatable with a table and associated metatable is boilerplate-heavy.
 
 ### Changes to metatabling:
-Luz implements a `meta` keyword, shorthand for setmetatable, assigning the resultant metatable to a variable name for later instantiation. 
+Luz implements a `meta` keyword that defines a metatable blueprint which automatically binds itself as its own metatable. This creates a self-referential metatable, enabling objects to derive behaviour from the table itself. The result is class-like behavior through prototypal delegation, without needing explicit and boilerplate-heavy `setmetatable` calls.
 
-Luz supports interoperability with existing Lua code - so existing `setmetatable` functionality is retained, enabling scalability.
+Luz supports interoperability with existing Lua code, therefore existing `setmetatable` and `getmetatable` logic is supported, enabling Luz's scalable and expressive nature.
 ```lua
+-- meta variableName prototype (self-referential metatable)
 meta Vector2 {
     x: int,
     y: int,
@@ -13,8 +14,9 @@ meta Vector2 {
     __add = (self, other) do
         self.x += other.x
         self.y += other.y
+        self
     end,
-
+    
     new = (x, y) do
         self.x = x
         self.y = y
@@ -22,7 +24,11 @@ meta Vector2 {
     end,
 }
 
-new_vec = Vector2.new(1, 2)
+positionA = Vector2.new(1, 2)
+positionB = Vector2.new(3, 4)
+
+positionResult = positionA + positionB
+print(positionResult.x, positionResult.y) --Outputs: 4 6
 ```
 
 ### `type` provides struct-like containers:
@@ -90,9 +96,9 @@ mixin ContactMethods {
 }
 
 -- Metatable creation, assign to User variable, composes ContactMethods with new metatable.
-meta User 
-    with ContactMethods {
-    
+meta User {
+    with ContactMethods, --Syntactical sugar for composing mixins & metatables together
+
     name: string,
     age: int,
     address: Address,
