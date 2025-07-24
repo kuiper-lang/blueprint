@@ -2,7 +2,7 @@
 Lua support object-oriented programming with metatables & metamethods. The typical method of invoking setmetatable with a table and associated metatable is boilerplate-heavy.
 
 ### Changes to metatabling:
-Luz implements a declarative `meta` block to enable metamethods in tables, enabling tables to be analogous with classes . 
+Luz implements a `meta` keyword, shorthand for setmetatable, assigning the resultant metatable to a variable name for later instantiation. 
 
 Luz supports interoperability with existing Lua code - so existing `setmetatable` functionality is retained, enabling scalability.
 ```lua
