@@ -15,7 +15,7 @@ type DivideByZeroError Error
 -- Not an alias, implicit _tag field carries the type name and inserted at transpilation
 -- Nominal typing vs structured typing allows for type-aware matching with easy custom error handling
 
-function divide(x: int, y: int): Result<int>
+function divide(x: int, y: int) -> Result<int>
     if y == 0 then
         (DivideByZeroError) {message = "Divisors cannot be zero."} -- Implicit return
         -- Linear precedence on casting only works when the value is atomic
