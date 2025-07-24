@@ -10,7 +10,7 @@ meta Vector2 {
     x: int,
     y: int,
 
-    _add(self, other) do
+    __add(self, other) do
         self.x += other.x
         self.y += other.y
     end,
