@@ -45,8 +45,8 @@ type Address {
 ### `mixin` provides composable method signatures
 ```lua
 mixin ContactMethods {
-    call(self) do
-        telephone:call(self.phone)
+    call = (self) do
+        print %"Calling {self.contact.phone}."
     end
 }
 ```
