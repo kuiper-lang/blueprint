@@ -26,8 +26,8 @@ function divide(x: int, y: int) -> Result<int>
 end
 
 match (Result<int>) divide(100, 0)
-    when Success           {value}    then print("Value: ", value)
-    when DivideByZeroError {message}  then print("Error: ", message)
-    when _                 {message}  then print("Unknown error: ", message)
+    when Success           {value}    then print %"Value: {value}"
+    when DivideByZeroError {message}  then print %"Error: {message}"
+    when _                 {message}  then print %"Unknown error: {message}"
 end 
 ```
