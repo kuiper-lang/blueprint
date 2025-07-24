@@ -10,12 +10,12 @@ meta Vector2 {
     x: int,
     y: int,
 
-    __add(self, other) do
+    __add = (self, other) do
         self.x += other.x
         self.y += other.y
     end,
 
-    new(x, y) do
+    new = (x, y) do
         self.x = x
         self.y = y
         self --Implicit return of `self` 
@@ -84,7 +84,7 @@ type ContactInfo {
 }
 
 mixin ContactMethods {
-    call(self) do
+    call = (self) do
         print %"Calling {self.contact.phone}."
     end
 }
@@ -98,7 +98,7 @@ meta User
     address: Address,
     contact: ContactInfo,
     -- Constructor function - special function that returns a new instance of the table/metatable User.
-    new(name: string, age: int, addr: Address, contact: ContactInfo) do
+    new = (name: string, age: int, addr: Address, contact: ContactInfo) do
         self.name     = name
         self.age      = age
         self.address  = addr -- Structured composition
