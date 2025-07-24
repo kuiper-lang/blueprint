@@ -1,12 +1,36 @@
-# OOP-style programming in Luz
-Lua supports object-oriented programming with metatables & metamethods. The typical method of invoking setmetatable with a table and associated metatable is boilerplate-heavy.
+<h2 style="margin:0; line-height:1.1;">🎁 Object-Oriented Programming in Luz </h2>
 
-### Changes to metatabling:
-Luz implements a `meta` keyword that defines a metatable blueprint which automatically binds itself as its own metatable. This creates a self-referential metatable, enabling objects to derive behaviour from the table itself. The result is class-like behavior through prototypal delegation, without needing explicit and boilerplate-heavy `setmetatable` calls.
+*"OOPs, I did it again..."*
 
-Luz supports interoperability with existing Lua code, therefore existing `setmetatable` and `getmetatable` logic is supported, enabling Luz's scalable and expressive nature.
+> **Background ↴**
+>
+> **Luz** supports **interoperability** with typical **Lua** - existing `setmetatable` and `getmetatable` logic is allowed
+>
+> Typical **Lua** supports **object-oriented programming** with **metatables & metamethods**. The typical method of invoking `setmetatable` with a table and associated metatable is **boilerplate-heavy**.
+
+---
+
+In Luz, we implement a `meta` keyword that defines a **metatable blueprint** which automatically **binds** itself as its own metatable. This creates a **self-referential metatable**, enabling objects to **derive behaviour from the table itself**. The result is **class-like** behavior through **prototypal delegation**, without needing explicit and boilerplate-heavy `setmetatable` calls. This is automatically assigned to a specified name.
+
+
+
+**Syntax**: `meta (metatable-name) (table)`
+
+---------------
+
+
+**Luz** also supports `trait`- concepts which define a **set of methods** which can be **composed** using the `with` keyword with **prototypes/self-referential metatables** to extend functionality.
+
+Definition is parallel to `meta` - requires **a name** and a **table with methods with no data fields**.
+
+**Syntax**: `trait (trait-name) (method-table)`
+
+---------------
+<h4 style="margin:0; line-height:2.0;">📝 Sample Code with <code>meta</code></h4>
+
+**Ex** 1 - Define a Vector self-ref metatable with additive functionality
+
 ```lua
--- meta variableName prototype (self-referential metatable)
 meta Vector2 {
     x: int,
     y: int,
@@ -31,92 +55,51 @@ positionResult = positionA + positionB
 print(positionResult.x, positionResult.y) --Outputs: 4 6
 ```
 
-### `type` provides struct-like containers:
-For plain data containers with no method definitions, Luz enables the programmer to create struct-like containers through a `type` syntax:
+---------------------
+<h4 style="margin:0; line-height:2.0;">📝 Sample Code with <code>trait</code></h4>
+
+**Ex** 2 - Define a trait with methods for social media users/admins
 
 ```lua
-type Address {
-    houseNumber: int,
-    street: string, 
-    zipcode: string
-}
-```
-
-### `mixin` provides composable method signatures
-```lua
-mixin ContactMethods {
-    call = (self) do
-        print %"Calling {self.contact.phone}."
-    end
-}
-```
-
-### Composition vs inheritance
-Luz, like Lua, emphasises composition over inheritance for flexibility.
-Type-level composition can be achieved with intersections of types:
-
-```lua
-type Address {
-    houseNumber:  int,
-    street:       string, 
-    zipcode:      string
-}
-
-type ContactInfo {
-    email:  string,
-    phone:  string
-}
-
--- Create new type definition User and intersect types Address, ContactInfo with a new tabled type which
--- expects name as a string, age as an integer.
-type User Address & ContactInfo & {
-    name:  string,
-    age:   int
-}
-```
-
-Metatable/mixin composition can be achieved through the `compose` keyword
-```lua
---Type definitions for tables passed to User
-type Address {
-    houseNumber:  int,
-    street:       string, 
-    zipcode:      string
-}
-
-type ContactInfo {
-    email:  string,
-    phone:  string
-}
-
-mixin ContactMethods {
-    call = (self) do
-        print %"Calling {self.contact.phone}."
+trait Social {
+    post = (self, body: string) do
+        ...
+        print %"Posted {body} as {self.name}"
     end
 }
 
--- Metatable creation, assign to User variable, composes ContactMethods with new metatable.
+```
+
+---------------------
+<h4 style="margin:0; line-height:2.0;">📝 Sample Code with <code>with</code></h4>
+
+**Ex** 3 - Compose existing Social trait with a User metatable
+
+```lua
+
+trait Social {
+    post = (self, body: string) do
+        ...
+        print %"Posted {body} as {self.name}"
+    end
+}
+
 meta User {
-    with ContactMethods, --Syntactical sugar for composing mixins & metatables together
+    with Social, --syntactical sugar for composing mixins & prototypes together
 
     name: string,
-    age: int,
-    address: Address,
-    contact: ContactInfo,
-    -- Constructor function - special function that returns a new instance of the table/metatable User.
-    new = (name: string, age: int, addr: Address, contact: ContactInfo) do
+    userId: int, 
+
+    --reference of self immediately yields instantiation of a new object
+    new = (name: string, id: int) do
         self.name     = name
-        self.age      = age
-        self.address  = addr -- Structured composition
-        self.contact  = contact
+        self.id       = id
         self-- Implicit return of `self` 
     end
 }
 
---Initialise structs
-address: Address = {houseNumber=42, street='A Road', zipcode='ABC1792'}
-contactInfo: ContactInfo = {email='john.luz@example.com', phone='288-1782'}
 
-newCustomer = User.new(name='John', age=42, addr=address, contact=contactInfo)
-newCustomer:call() -- outputs: Calling 288-1782.
+newCustomer = User.new(name='John', id=42)
+newCustomer:call("Hello, world")
+--outputs: Posted Hello, world as John
 ```

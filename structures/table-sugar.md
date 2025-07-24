@@ -1,6 +1,10 @@
-# 🛠️ Extending the table in Luz
+<h2 style="margin:0; line-height:1.1;">🛠️ Extending the table </h2>
 
-### Why keep the table?
+*"In Lua, even the programmer is a table!"*
+
+> **Background ↴**
+> The only data structure in **Lua** is the **table**. **Lua** is intended to be **lightweight** and **embeddable**, the **table** enhances this with ease.
+
 Using a single, uniform data structure preserves minimalism in a language where simplicity is essential, while reducing cognitive load. This enables programmers to focus on the *logic* of a program rather then the syntax of the language or multiple data structures.
 
 ### Inclusion of syntax sugar for data structures
