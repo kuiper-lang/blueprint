@@ -25,7 +25,7 @@ Other `Error` types can be crafted through **intersections** with other tables w
 **Ex** 1 - Crafting new error types, typecheck/destructuring of tables in match, and handling of errors.
 ```lua
 --Define new nominal type 'DivideByZeroError'
-type DivideByZeroError Nominal<Error>
+type DivideByZeroError! Error
 
 --Simple divide function with error handling and type annotation.
 function divide(x: int, y: int) -> Result<int>
