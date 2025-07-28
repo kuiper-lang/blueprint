@@ -39,6 +39,6 @@ end
 match divide(100, 0)
     Success            {value}    then print %"Value: {value}"
     DivideByZeroError  {message}  then print %"Error: {message}"
-    _                   {message}  then print %"Unknown error: {message}"
+    _                  {message}  then print %"Unknown error: {message}"
 end 
 ```
