@@ -1,10 +1,10 @@
-<h2 style="margin:0; line-height:1.1;">⚠️ Error Handling Theory in Luz</h2>
+<h2 style="margin:0; line-height:1.1;">⚠️ Error Handling Theory in Kuiper</h2>
 
 *“I have not failed. I've just found 10,000 ways that won't work.” - Thomas Edison* 
 
-**Luz's error handling** takes major inspiration from **TypeScript** `type` expression syntax, **Rust** `match` patterns, and **Elixir**'s pattern matching and tagged variants for errors and successful actions.
+**Kuiper's error handling** takes major inspiration from **TypeScript** `type` expression syntax, **Rust** `match` patterns, and **Elixir**'s pattern matching and tagged variants for errors and successful actions.
 
-**Luz** uses a `match` statement for pattern matching on `Result<T>` types, allowing you to **destructure** and handle different `Error` or `Success<T>` cases directly in your code. Each `when` clause matches a specific type and binds its fields, making error handling **concise and expressive**.
+**Kuiper** uses a `match` statement for pattern matching on `Result<T>` types, allowing you to **destructure** and handle different `Error` or `Success<T>` cases directly in your code. Each `when` clause matches a specific type and binds its fields, making error handling **concise and expressive**.
 
 The types `Success<T>`, `Result<T>`, and `Error` are automatically present in the **default namespace** as they are core types for error handling and can be extended via **`type` definitions**.
 
