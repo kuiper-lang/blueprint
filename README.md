@@ -1,15 +1,11 @@
-# 📑 Luz - Language Specification
-Luz is a strict superset of Lua which enables the combination of Lua and Luz features in .lz files which then transpiles cleanly to Lua. Luz is an augmentation of Lua, not a replacement, and is forward-compatible & reverse-compatible with transpilation to enable a pragmatic design.
-
-### Description
-This document details the key philosophy and rationale behind designing Luz, a general-purpose scripting language constructed as a dialect on top of Lua, a lightweight embeddable scripting language.
+# ☄️ Blueprint & roadmap for Kuiper
+Kuiper is a superset of Lua 5.1, using a modular transpiler to yield Lua 5.1 for the KuiperBelt JIT runtime, an adapted version of LuaJIT. Kuiper is an augmentation of Lua and is forward- & reverse-compatible with existing Lua 5.1 scripts. This repository details the key philosophy and roadmap for Kuiper's minimal syntax.
 
 ### Key Motivation
-The motivation behind developing Luz as a distinct superset of Lua is derived from its minimal syntax, as well as the emphasis on functional and metaprogramming features, making it incredibly flexible and expressive.
+The motivation behind developing Kuiper as a modern dialect of Lua with functional and metaprogramming features at its core, while maintaining minimalism, flexibility and expression.
+Kuiper implements modern concurrency support via coroutines, gradual typing with type definitions, pattern matching, improved lambda syntax and pipelining.
 
-This specification will outline how Lua, a fast, minimal, embeddable scripting language, will be adapted into Luz, an expressive general-purpose dialect that maintains Lua's speed and minimalism while introducing several modern features, such as native support for async/await, gradual typing, error handling, match statements, and pipelining.
+### Motivation for Kuiper Developlent 
+- Kuiper fuses Lua and modern languages, i.e. TypeScript, Go and Elixir while preserving Lua's concise and small syntax. Kuiper resolves Lua's weaknesses by expanding on existing strengths through metaprogramming to maintain modernity and create a drive for general-purpose programming with Lua's syntax
 
-### Why Luz?
-- Luz bridges the gap between Lua and modern languages, i.e. TypeScript, modern functional programming concepts while preserving Lua's clean and readable syntax. This is achieved through resolving key pain points with general-purpose programming in Lua, which is typically optimised to embedding within existing applications.
-
-- Versus Lua, existing scripting languages such as Python, JavaScript, and Ruby sacrifice speed and runtime minimalism via larger runtime dependencies and performance overhead through abstraction. This is circumvented by Luz's key philosophy to maintain Lua's lightweight embeddability while evolving its syntax with new modern features which ease developer grievances.
+- Lua's competitors, i.e. Ruby, Python, et cetera typically sacrifice simplicity and runtime minimalism through high-level abstractions, i.e. classes, inheritance, and larger runtime dependencies. In Kuiper, modern theories assist to soothe developer grievances as well as provide a lightning-fast scripting platform with small modular libraries and an updated memory management model.
