@@ -37,8 +37,8 @@ end
 
 -- Identification of type, successively then destructure associated sealed table for each type
 match divide(100, 0)
-    when Success            {value}    then print %"Value: {value}"
-    when DivideByZeroError  {message}  then print %"Error: {message}"
-    when _                  {message}  then print %"Unknown error: {message}"
+    Success            {value}    then print %"Value: {value}"
+    DivideByZeroError  {message}  then print %"Error: {message}"
+    _                   {message}  then print %"Unknown error: {message}"
 end 
 ```
