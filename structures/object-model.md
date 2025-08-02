@@ -38,4 +38,9 @@ loc
     |> scale(2)
     |> print -- Point(6, 6)
 
+-- pass obj as arg 
+
+require { moveTo } in './movement.module.kpr' -- .kpr
+
+moveTo
 ```
