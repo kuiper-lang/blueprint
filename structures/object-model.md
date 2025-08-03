@@ -9,7 +9,6 @@ type Ops   = {
     scale(factor: int) -> Self 
 }
 
---
 type Point = { 
     x: int, 
     y: int 
@@ -34,13 +33,8 @@ end
 loc = Point {x = 1, y = 2}
 
 loc
-    |> translate(2, 1)
-    |> scale(2)
-    |> print -- Point(6, 6)
+    |> .translate(2, 1)
+    |> .scale(2)
+    |> print 
 
--- pass obj as arg 
-
-require { moveTo } in './movement.module.kpr' -- .kpr
-
-moveTo
 ```
