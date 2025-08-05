@@ -1,4 +1,4 @@
-# ☄️ Blueprint & roadmap for Kuiper
+<h2 style="margin:0; line-height:1.1;">Kuiper's blueprint & roadmap</h2>
 Kuiper is a superset of Lua 5.1, using a modular transpiler to yield Lua 5.1 code for the LuaJIT runtime. Kuiper is an augmentation of Lua and is forward- & reverse-compatible with existing Lua 5.1 scripts. This repository details the key philosophy and roadmap for Kuiper's minimal syntax.
 
 ### Key Motivation
