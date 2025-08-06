@@ -9,10 +9,8 @@ type User = {
     userName: string
 }
 
---Associate `function`: `logOut()` with `User`
-function logOut() for (u: User)
-    print %"Logged out: {u.userName}"
-end
+--Associate `function`: `logOut()` with `User` (short-hand function)
+logOut() for (u: User) = print %"Logged out: {u.userName}"
 
 --Instantiate: `User` with `userId` of 1, `userName` of "admin"
 newUser = User(userId=1,
@@ -39,10 +37,8 @@ meta for (u: User) = {
     end
 }
 
---Associate `function`: `logOut()` with `User`
-function logOut() for (u: User)
-    print %"Logged out: {u.userName}"
-end
+--Associate `function`: `logOut()` with `User` (short-hand function)
+logOut() for (u: User) = print %"Logged out: {u.userName}"
 
 --Instantiate: `User` with `userId` of 1, `userName` of "admin"
 newUser = User(userId=1,

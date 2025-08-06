@@ -8,7 +8,6 @@
 - Type checking, error handling
 - Nominal typing via `Unique<T>`
 - ADT-like syntax
-- Support for default implementations
 
 **Types** form the foundation of the **object model** through:
 
@@ -16,3 +15,5 @@
 - Metatyping (typing with associated metatables via `meta for...`)
 - Associated methods via `function... for`
 - Supporting polymorphism, encapsulation/access control
+- Composition with intersections
+- Enums, default values
