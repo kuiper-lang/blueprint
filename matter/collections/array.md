@@ -4,7 +4,7 @@ Arrays in Kuiper are constructed using a general constructor which establishs ge
 ```lua
 Array<T>(tbl : {T}): Array<T>
 ```
-> Returns a `Array<T>` table, where `T` is the element type. Elements are ordered and indexed consecutively starting from zero.
+Returns a `Array<T>` table, where `T` is the element type. Elements are ordered and indexed consecutively starting from zero.
 
 -----
 <h4 style="margin:0; line-height:2.0;">Examples</h4>
