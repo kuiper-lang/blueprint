@@ -5,17 +5,17 @@
 ```lua
 --New record-like `type`: Person.
 type Person = {
-    age:  int,
-    name: string
+  age:  int,
+  name: string
 }
 
 -- Constructors w/ matching names will instantiate the `Type`.
 --`function`s associated with a `type` through `for (t: Type)`
 -- will return the instance implicitly unless specified otherwise.
 function Person(age: int = 0, 
-  name: string = "Unknown") for (p: Person)
-    p.age  = age
-    p.name = name
+ name: string = "Unknown") for (p: Person)
+  p.age  = age
+  p.name = name
 end
 
 --Instantiate: `Person` with `age` of 42.

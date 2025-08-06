@@ -1,21 +1,20 @@
 <h2 style="margin:0; line-height:1.1;">Defining constants</h2>
 
-**Constants** are defined via the `final` keyword.
+**Constants** are defined via the `const` keyword.
 ```lua
-final (variable-name): (type-expression) = (value)
+const (variable-name): (type-expression?) = (value)
 ```
 
------
-<h4 style="margin:0; line-height:2.0;">Examples</h4>
-
 ```lua
--- define new constant `PI`
-final PI: int = 3.14
+--Define new `const`: PI
+const PI: int = 3.14
 
---fyi - print appends \n in Luz regardless
+--Outputs: Input the radius:
+--Define new variable: radius, takes user input
+--`print` in Lua appends \n, we use io.write
 io.write "Input the radius: " 
 radius: int = io.scan()
 
+--For this final expression, brackets not required but used for readability
 print (pi * (radius ^ 2)) 
--- brackets not needed here for final expression, but are used for readability
 ```
