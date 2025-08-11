@@ -64,8 +64,8 @@ swim(distance: int) for (a: Amphibian) = print %"{a.species} is swimming for {di
 --Instantiate: `Amphibian` with `species` of R. temporaria
 frog = Amphibian (species="R. temporaria")
 
-frog.swim(100) --Outputs: R. temporaria is swimming for 100 meters
-frog.sleep() --Outputs: R. temporaria is sleeping
+frog:swim(100) --Outputs: R. temporaria is swimming for 100 meters
+frog:sleep() --Outputs: R. temporaria is sleeping
 
 print frog.species --Outputs: R. temporaria
 ```

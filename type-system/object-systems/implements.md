@@ -17,7 +17,7 @@ newUser = User(userId=1,
   userName = "admin")
 
 --Outputs: Logged out: admin
-newUser.logOut()
+newUser:logOut()
 ```
 
 This type has no **metatable** implementation, which can be created like so:
