@@ -49,6 +49,7 @@ type Animal = {
   eat:      () -> void,
   sleep:    () -> void
 }
+
 --Associate `function`s: `eat` and `sleep` for `Animal` via short-hand function syntax
 eat() for (a: Animal) = print %"{a.species} is eating"
 sleep() for (a: Animal) = print %"{a.species} is sleeping"
