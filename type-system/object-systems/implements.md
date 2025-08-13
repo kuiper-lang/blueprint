@@ -33,7 +33,7 @@ type User = {
 meta for (u: User) = {
   --Implicit return: User(userId=..., userName=...)
   __tostring = () do
-    %"User(userId={u.userId}, userName={u.userName})
+    %"User(userId={u.userId}, userName={u.userName})"
   end
 }
 

@@ -19,12 +19,13 @@ type Restaurant = {
 }
 
 --Constructor: ensures `rating` lies between 1-5.
-function Review(author: string, body: string, rating: int) for (r: Review)
+function Review(author: string, body: string, rating: int, criticReview: Review) for (r: Review)
   assert(rating == 1..=5, "rating needs to be between 1-5 stars!")
 
   r.author = author
   r.body = body
   r.rating = rating
+  r.criticReview = criticReview
 
   --`function.. for` returns a new instance implicitly
 end
